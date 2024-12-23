@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSB Image Encoder/Decoder - TEAM AI AVENGERS</title>
+    <style>
+        /* Original styling to keep everything consistent */
+        body {
+            background-color: #285b23;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #285b23;
+            color: #C9E4CA;
+        }
+
+        .header img {
+            width: 30px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        .header h1 {
+            display: inline;
+            margin: 0;
+        }
+
+        /* Add a link to the team name to navigate to the home page */
+        .header h1 a {
+            color: #C9E4CA;
+            text-decoration: none;
+        }
+        
+        .header h1 a:hover {
+            text-decoration: underline;
+        }
+
+        .header a {
+            color: #f2cff1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            background-color: #f2cff1;
+            color: #0A122A;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 30px; /* Added margin-top to move boxes down */
+        }
+
+        input[type="file"], input[type="text"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .encode-button {
+            background-color: green;
+            color: white;
+        }
+
+        .decode-button {
+            background-color: red;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        #downloadLink {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        #downloadLink:hover {
+            text-decoration: underline;
+        }
+
+        #decodedMessage {
+            color: #0A122A;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <img src="logo.png" alt="Logo"> <!-- Replace with your logo image -->
+            <h1><a href="home.html">TEAM AI AVENGERS</a></h1>
+        </div>
+        <a href="about.html">About Us</a>
+    </div>
+
+    <div class="container">
+        <!-- Encoder Section -->
+        <div class="box" style="margin-top: 50px;"> <!-- Additional top margin added here -->
+            <h3 class="encode">Encoder</h3>
+            <input type="file" id="uploadImage" accept="image/*">
+            <input type="text" id="message" placeholder="Enter message to encode">
+            <button id="encodeButton" class="encode-button">Encode Message</button>
+            <a id="downloadLink" style="display:none;">Download Encoded Image</a>
+        </div>
+
+        <!-- Decoder Section -->
+        <div class="box">
+            <h3 class="decode">Decoder</h3>
+            <input type="file" id="decodeImage" accept="image/*">
+            <button id="decodeButton" class="decode-button">Decode Message</button>
+            <p id="decodedMessage" style="display:none;"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('encodeButton').addEventListener('click', async function() {
+    const fileInput = document.getElementById('uploadImage');
+    const message = document.getElementById('message').value;
+
+    if (fileInput.files.length === 0) {
+        alert('Please upload an image.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', fileInput.files[0]);
+    formData.append('message', message);
+    formData.append('isEncoded', true);  // Indicates encoding
+
+    try {
+        const response = await fetch('/save', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        console.error('Error saving data:', error);
+    }
+});
+
+document.getElementById('decodeButton').addEventListener('click', async function() {
+    const fileInput = document.getElementById('decodeImage');
+
+    if (fileInput.files.length === 0) {
+        alert('Please upload an encoded image to decode.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', fileInput.files[0]);
+
+    try {
+        const response = await fetch('/decode', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.json();
+        document.getElementById('decodedMessage').innerText = result.message;
+        document.getElementById('decodedMessage').style.display = 'block';
+    } catch (error) {
+        console.error('Error decoding image:', error);
+    }
+});
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

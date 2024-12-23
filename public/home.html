@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoding and Decoding</title>
+    <style>
+        body {
+            background-color: #285b23;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .header img {
+            width: 30px;
+            height: auto;
+            margin-right: 5px;
+        }
+        .header h1 {
+            display: inline;
+            margin: 0;
+            color: #C9E4CA;
+        }
+        .header a {
+            color: #f2cff1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            display: flex;
+            background-color: #f2cff1;
+            color: #0A122A;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px; /* Added top margin */
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .box img {
+            width: 40%;
+            height: auto;
+            margin-right: 20px;
+        }
+        .box .description {
+            flex: 1;
+            text-align: left;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+
+        /* Updated button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: black; /* Button color set to black */
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <img src="logo.png" alt="Logo"> <!-- Replace with your logo image -->
+        <h1>TEAM AI AVENGERS</h1>
+    </div>
+    <a href="about.html">About Us</a>
+</div>
+
+<div class="container">
+    <div class="box">
+        <img src="image.jpg" alt="Description of the image">
+        <div class="description">
+            <p><strong>Steganography</strong> is the practice of concealing a message within another medium, such as an image, audio file, or video. The main goal is to hide the existence of the message itself, rather than simply encrypting it.</p>
+            <h3 class="encode">Encoding</h3>
+            <p>In the encoding process, the secret message is embedded into a carrier file. For example, in an image, this might involve modifying the least significant bits of pixel values so that the changes are imperceptible to the human eye. Various techniques can be used, such as altering color values, adding noise, or employing specific algorithms to ensure that the hidden data remains undetectable.</p>
+            <h3 class="decode">Decoding</h3>
+            <p>Decoding is the reverse process, where the hidden message is extracted from the carrier file. This typically involves analyzing the same aspects of the carrier (like pixel values in an image) to retrieve the concealed information. Effective decoding requires knowledge of the method used for embedding the message, as well as any keys or algorithms necessary for extraction.</p>
+            <p>Overall, steganography is about obscuring communication, allowing for secretive exchanges without drawing attention.</p>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <!-- Single Encode/Decode button -->
+        <button onclick="window.location.href='index.html'">Encode/Decode</button>
+    </div>
+</div>
+
+</body>
+</html>

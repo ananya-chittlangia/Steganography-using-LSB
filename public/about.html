@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TEAM AI AVENGERS</title>
+    <style>
+        body {
+            background-color: #285b23; /* Background color */
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            margin: 0; /* Remove default margin */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .header img {
+            width: 30px; /* Adjust logo size */
+            height: auto;
+            margin-right: 5px;
+        }
+
+        /* Updated to make TEAM AI AVENGERS clickable */
+        .header h1 {
+            display: inline;
+            margin: 0;
+            color: #C9E4CA;
+        }
+        .header h1 a {
+            color: #C9E4CA;
+            text-decoration: none;
+        }
+        .header h1 a:hover {
+            text-decoration: underline;
+        }
+
+        .header a {
+            color: #f2cff1; /* Link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Added top margin to the first box */
+        .box {
+            display: flex;
+            background-color: #f2cff1;
+            color: #0A122A;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .container .box:first-child {
+            margin-top: 50px; /* Adds top margin to the first box */
+        }
+
+        .box img {
+            width: 40%;
+            height: auto;
+            margin-right: 20px;
+        }
+        .box .description {
+            flex: 1;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <img src="logo.png" alt="Logo">
+        <h1><a href="home.html">TEAM AI AVENGERS</a></h1>
+    </div>
+    <a href="home.html">Home</a>
+</div>
+
+<div class="container">
+    <!-- Added top margin to shift this box downwards -->
+    <div class="box">
+        <div class="description">
+            <h3>Gul Bhardwaj</h3>
+            <p>RA2312703010026</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="description">
+            <h3>Ananya Chittlangia</h3>
+            <p>RA2312703010016</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="description">
+            <h3>Atharv Das</h3>
+            <p>RA2312703010028</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

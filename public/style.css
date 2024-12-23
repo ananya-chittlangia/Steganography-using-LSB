@@ -1,0 +1,112 @@
+body {
+    background-color: #285b23;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #285b23;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.header h1 {
+    color: #C9E4CA;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;  /* Adjusted width to make the container smaller */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    background-color: #f2cff1;
+    color: #0A122A;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.register-heading {
+    text-align: center; /* Centered Register heading */
+    font-size: 24px;  /* Increased font size for emphasis */
+    color: #285b23;  /* Matching header color */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+    background-color: green;  /* Green background for the register button */
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.center-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
